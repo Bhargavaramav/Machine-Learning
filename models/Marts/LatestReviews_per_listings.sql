@@ -1,10 +1,12 @@
 
 {{ config(materialized='table')}}
 
-{{ config(
-    pre_hook="truncate_if_exists('raw', 'LatestReviews_per_listings')"  
-) }}
 
+{{ config(pre_hook="SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '{{ this.name }}' LIMIT 1;") }}
+
+{% if result is not none %}
+  TRUNCATE TABLE {{ this }};
+{% endif %}
 
 
 
