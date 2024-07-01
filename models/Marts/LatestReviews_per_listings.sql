@@ -2,7 +2,7 @@
 {{ config(materialized='table')}}
 
 {{ config(
-    pre_hook="if exists(select 1 from information_schema.tables where table_name='LatestReviews_per_listings') Truncate table LatestReviews_per_listings'   
+    pre_hook="if exists(select 1 from information_schema.tables where table_name='LatestReviews_per_listings') Truncate table LatestReviews_per_listings"  
 ) }}
 
 
