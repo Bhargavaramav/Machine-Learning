@@ -1,5 +1,5 @@
 
-{{ config(materialized='table')}}
+--{{ config(materialized='table')}}
 
 
 {{ config(pre_hook="SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '{{ this.name }}' LIMIT 1;") }}
